@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    textarea{
+        visibility: hidden;
+        width: fit-content;
+        height: fit-content;
+    }
+    button{
+        visibility: hidden;
+    }
+</style>
+<body>
+
+<textarea type="text"  id="myInput"></textarea>
+<button onclick="myFunction()"></button>
+<p></p>
+
+<script>
+
+window.addEventListener('load', ()=>{
+        document.querySelector("button").click()
+    })
+document.addEventListener('click', function(event) {
+   myFunction()
+});
+document.getElementById("myInput").value = `
+In my final year project, we had to change our goals and working style after getting feedback from our project guide. At first, we focused on finishing tasks quickly by using simple methods. Later, we were asked to improve reliability and make the project work on multiple devices. Because of this, we needed to change our technical approach. I helped the team understand that this change was important for quality, not just extra work. We reviewed our plan, found new priorities, and reassigned tasks based on the updated requirements. We also held short discussions to clear doubts and set realistic deadlines. I made sure everyone felt comfortable sharing their ideas and problems. By staying calm and organized, we adjusted our approach smoothly and continued making progress. In the end, we successfully delivered a stable project on time. This experience taught me that adaptability and clear communication are very important when managing change in a team.
+`
+
+function myFunction() {
+  
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+console.log(copyText.value)
+}
+</script>
+
+</body>
+</html>
